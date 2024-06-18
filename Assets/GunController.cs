@@ -18,7 +18,7 @@ public class GunController : WeaponPositionController
 
     public int currentGunSetting = 0; // <0, 9>
 
-    [SerializeField] Color32[] textColors;
+    [SerializeField] ColorPaletteBase colorPalette;
 
     private void Start()
     {
@@ -56,7 +56,7 @@ public class GunController : WeaponPositionController
     void UpdateGunText()
     {
         gunWorldText.text = currentGunSetting.ToString();
-        gunWorldText.color = textColors[currentGunSetting];
+        gunWorldText.color = colorPalette.colors[currentGunSetting];
     }
 
     public void Shoot()
@@ -67,7 +67,7 @@ public class GunController : WeaponPositionController
         if (Physics.Raycast(ray, out hit, rayDistance, raycastLayer))
         {
             var particle = Instantiate(particlePrefab, shootPoint.position, Quaternion.identity);
-            particle.Init(textColors[currentGunSetting]);
+            particle.Init(colorPalette.colors[currentGunSetting]);
 
             float distance = Vector3.Distance(particle.transform.position, hit.point);
             float time = distance / particleSpeed;

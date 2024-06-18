@@ -47,8 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inUsePos: {x: 0, y: -0.43, z: 0.86}
   inUseRot: {x: -4.78, y: 0, z: 0}
+  hiddenPos: {x: 0, y: -2, z: 0}
   transitionSpeed: 16
   isInUse: 0
+  isHidden: 0
   mesh: {fileID: 5328135695818857244}
   rotatingGear: {fileID: 930691533542772236}
   shootPoint: {fileID: 54909033501344086}
@@ -61,27 +63,7 @@ MonoBehaviour:
   particlePrefab: {fileID: 1316386799102199109, guid: fd8560776a64a6b40aa1e6e75866a08c, type: 3}
   particleSpeed: 15
   currentGunSetting: 0
-  textColors:
-  - serializedVersion: 2
-    rgba: 4294967295
-  - serializedVersion: 2
-    rgba: 4281597696
-  - serializedVersion: 2
-    rgba: 4278255483
-  - serializedVersion: 2
-    rgba: 4278255601
-  - serializedVersion: 2
-    rgba: 4278239487
-  - serializedVersion: 2
-    rgba: 4278221055
-  - serializedVersion: 2
-    rgba: 4278204159
-  - serializedVersion: 2
-    rgba: 4284023039
-  - serializedVersion: 2
-    rgba: 4289069311
-  - serializedVersion: 2
-    rgba: 4294901833
+  colorPalette: {fileID: 11400000, guid: 0f56e9713b25d0e46b22d680a87cb6dc, type: 2}
 --- !u!1 &4787959822858247819
 GameObject:
   m_ObjectHideFlags: 0

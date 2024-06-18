@@ -16,8 +16,8 @@ TagManager:
   - RaycastBodyPart
   - Invisible
   - FPSItems
-  - 
-  - 
+  - CameraToolVisible
+  - MainCameraOnly
   - 
   - 
   - 

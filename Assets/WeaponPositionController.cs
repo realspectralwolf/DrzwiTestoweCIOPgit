@@ -6,11 +6,13 @@ public class WeaponPositionController : MonoBehaviour
 {
     [SerializeField] Vector3 inUsePos;
     [SerializeField] Vector3 inUseRot;
+    [SerializeField] Vector3 hiddenPos;
     Vector3 initialPos;
     Quaternion initialRot;
 
     [SerializeField] float transitionSpeed = 2f;
     [HideInInspector] public bool isInUse = false;
+    [HideInInspector] public bool isHidden = false;
 
     public void Start()
     {
@@ -27,6 +29,12 @@ public class WeaponPositionController : MonoBehaviour
         {
             targetPos = inUsePos;
             targetRot = Quaternion.Euler(inUseRot);
+        }
+        else if (isHidden)
+        {
+            targetPos = initialPos;
+            targetPos.y = hiddenPos.y;
+            targetRot = initialRot;
         }
         else
         {

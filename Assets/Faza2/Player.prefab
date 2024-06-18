@@ -715,7 +715,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 255
+    m_Bits: 2303
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -775,7 +775,6 @@ GameObject:
   m_Component:
   - component: {fileID: 903450140583025308}
   - component: {fileID: 8689649817944894203}
-  - component: {fileID: 8968046852888149169}
   m_Layer: 0
   m_Name: Weapons Camera
   m_TagString: MainCamera
@@ -849,14 +848,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8968046852888149169
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7707334206184633732}
-  m_Enabled: 1
 --- !u!1 &8953692005874586396
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +937,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tool
       objectReference: {fileID: 0}
+    - target: {fileID: 6086993864938791281, guid: fd56bf4345592eb4b8e48a9a02218f2a, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 1279
+      objectReference: {fileID: 0}
+    - target: {fileID: 7628604060653675973, guid: fd56bf4345592eb4b8e48a9a02218f2a, type: 3}
+      propertyPath: raycastSource
+      value: 
+      objectReference: {fileID: 3531113455753460598}
     - target: {fileID: 8661100652056883825, guid: fd56bf4345592eb4b8e48a9a02218f2a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.72
