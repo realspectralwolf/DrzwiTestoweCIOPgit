@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ClearableSurface : MonoBehaviour
 {
-    float animTime = 0.4f;
+    float animTime = 0.3f;
     MeshRenderer meshRend;
     Color32 initialColor;
 
@@ -17,20 +17,26 @@ public class ClearableSurface : MonoBehaviour
         initialColor = meshRend.material.color;
     }
 
-    public void ProcessHit()
+    public void ProcessHit(int gunSetting)
     {
-        hitCount++;
-
-        if (hitCount > 1)
-        {
-            // too many
-        }
-
         Color targetColor = new Color32(52, 235, 64, 255);
         meshRend.material.DOKill();
         meshRend.material.DOColor(targetColor, animTime).OnComplete(() =>
         {
             meshRend.material.DOColor(initialColor, animTime);
         });
+
+        if (gunSetting != 0)
+        {
+            // Mistake
+            return;
+        }
+
+        hitCount++;
+
+        if (hitCount > 1)
+        {
+            // Too Many Mistake
+        }
     }
 }

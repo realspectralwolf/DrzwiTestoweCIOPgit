@@ -12,13 +12,13 @@ public class WeaponPositionController : MonoBehaviour
     [SerializeField] float transitionSpeed = 2f;
     [HideInInspector] public bool isInUse = false;
 
-    void Start()
+    public void Start()
     {
         initialPos = transform.localPosition;
         initialRot = transform.localRotation;
     }
 
-    void Update()
+    public void Update()
     {
         Vector3 targetPos;
         Quaternion targetRot;

@@ -7,9 +7,17 @@ public class ProjectileParticle : MonoBehaviour
     [SerializeField] ParticleSystem continuusParticles;
     [SerializeField] ParticleSystem explodeParticles;
 
-    private void Start()
+    public void Init(Color32 color)
     {
+        ChangeParticleColor(continuusParticles, (Color)color);
+        ChangeParticleColor(explodeParticles, (Color)color);
         continuusParticles.Play();
+    }
+
+    void ChangeParticleColor(ParticleSystem system, Color newColor)
+    {
+        ParticleSystem.MainModule mainModule = continuusParticles.main;
+        mainModule.startColor = newColor;
     }
 
     public void Explode()
