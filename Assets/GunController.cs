@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GunController : WeaponPositionController
 {
+    [SerializeField] Transform mesh;
     [SerializeField] Transform shootPoint;
     [SerializeField] Camera targetCamera;
     [SerializeField] LayerMask raycastLayer;
@@ -22,10 +23,19 @@ public class GunController : WeaponPositionController
             var particle = Instantiate(particlePrefab, shootPoint.position, Quaternion.identity);
             float distance = Vector3.Distance(particle.transform.position, hit.point);
             float time = distance / particleSpeed;
+            bool doClearSurface = hit.collider.CompareTag("ClearableSurface");
             particle.transform.DOMove(hit.point, time).SetEase(Ease.Linear).OnComplete(() =>
             {
                 particle.Explode();
+
+                if (doClearSurface)
+                {
+                    hit.collider.GetComponent<ClearableSurface>().ProcessHit();
+                }
             });
         }
+
+        mesh.DOComplete();
+        mesh.DOPunchPosition(new Vector3(0, 0, 0.2f), 0.1f, 2);
     }
 }

@@ -49,6 +49,7 @@ MonoBehaviour:
   inUseRot: {x: -4.78, y: 0, z: 0}
   transitionSpeed: 16
   isInUse: 0
+  mesh: {fileID: 5328135695818857244}
   shootPoint: {fileID: 54909033501344086}
   targetCamera: {fileID: 0}
   raycastLayer:
@@ -56,7 +57,7 @@ MonoBehaviour:
     m_Bits: 1
   rayDistance: 100
   particlePrefab: {fileID: 1316386799102199109, guid: fd8560776a64a6b40aa1e6e75866a08c, type: 3}
-  particleSpeed: 6
+  particleSpeed: 15
 --- !u!1 &4787959822858247819
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +367,7 @@ Transform:
   m_GameObject: {fileID: 6637731300577199309}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.121, z: 0.694}
+  m_LocalPosition: {x: -0, y: 0.183, z: 0.694}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
