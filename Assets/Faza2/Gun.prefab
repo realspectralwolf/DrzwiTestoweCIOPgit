@@ -58,7 +58,7 @@ MonoBehaviour:
   targetCamera: {fileID: 0}
   raycastLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 2049
   rayDistance: 100
   particlePrefab: {fileID: 1316386799102199109, guid: fd8560776a64a6b40aa1e6e75866a08c, type: 3}
   particleSpeed: 15

@@ -71,15 +71,19 @@ public class GunController : WeaponPositionController
 
             float distance = Vector3.Distance(particle.transform.position, hit.point);
             float time = distance / particleSpeed;
-            bool doClearSurface = hit.collider.CompareTag("ClearableSurface");
             int gunSettingForThisParticle = currentGunSetting;
             particle.transform.DOMove(hit.point, time).SetEase(Ease.Linear).OnComplete(() =>
             {
                 particle.Explode();
 
-                if (doClearSurface)
+                if (hit.collider.CompareTag("ClearableSurface"))
                 {
                     hit.collider.GetComponent<ClearableSurface>().ProcessHit(gunSettingForThisParticle);
+                }
+
+                if (hit.collider.CompareTag("Door"))
+                {
+                    hit.collider.GetComponent<Door>().ProcessHit(gunSettingForThisParticle);
                 }
             });
         }

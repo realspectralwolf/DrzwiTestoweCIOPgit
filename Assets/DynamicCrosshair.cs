@@ -18,7 +18,7 @@ public class DynamicCrosshair : MonoBehaviour
     [SerializeField] float transitionSpeed = 12f;
     [SerializeField] Image crosshairImage;
 
-    public bool isInUse = false;
+    [HideInInspector] public bool isInUse = false;
 
     void Start()
     {
@@ -29,8 +29,15 @@ public class DynamicCrosshair : MonoBehaviour
     {
         Vector3 targetScale;
         Color targetColor;
+        float smoothStep = transitionSpeed * Time.deltaTime;
 
-        if (gun.isInUse || tool.isInUse)
+        if (tool.isInUse)
+        {
+            crosshairImage.color = Color.Lerp(crosshairImage.color, new Color(0,0,0,0), smoothStep);
+            return;
+        }
+
+        if (gun.isInUse)
         {
             targetScale = inUseScale;
             targetColor = inUseColor;
@@ -41,7 +48,6 @@ public class DynamicCrosshair : MonoBehaviour
             targetColor = defaultColor;
         }
 
-        float smoothStep = transitionSpeed * Time.deltaTime;
         transform.localScale = Vector3.Lerp(transform.localScale, targetScale, smoothStep);
         crosshairImage.color = Color.Lerp(crosshairImage.color, targetColor, smoothStep);
     }

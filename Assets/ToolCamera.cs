@@ -12,7 +12,7 @@ public class ToolCamera : MonoBehaviour
     void Start()
     {
         // Create the Render Texture
-        renderTexture = new RenderTexture(Screen.width, Screen.height, 0);
+        renderTexture = new RenderTexture(Mathf.FloorToInt(Screen.width * 0.7f), Screen.height, 0);
         renderTexture.name = "CameraRenderTexture";
 
         // Optionally, you can set depth buffer and anti-aliasing

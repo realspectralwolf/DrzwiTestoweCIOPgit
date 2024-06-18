@@ -944,7 +944,7 @@ PrefabInstance:
     - target: {fileID: 7628604060653675973, guid: fd56bf4345592eb4b8e48a9a02218f2a, type: 3}
       propertyPath: raycastSource
       value: 
-      objectReference: {fileID: 3531113455753460598}
+      objectReference: {fileID: 8349199058889648666}
     - target: {fileID: 8661100652056883825, guid: fd56bf4345592eb4b8e48a9a02218f2a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.72
@@ -1004,6 +1004,11 @@ MonoBehaviour:
 --- !u!4 &7987419969954539946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8661100652056883825, guid: fd56bf4345592eb4b8e48a9a02218f2a, type: 3}
+  m_PrefabInstance: {fileID: 1651533548764617691}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8349199058889648666 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7292802575955784129, guid: fd56bf4345592eb4b8e48a9a02218f2a, type: 3}
   m_PrefabInstance: {fileID: 1651533548764617691}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6131383373336938394

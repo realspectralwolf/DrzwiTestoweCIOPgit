@@ -19,12 +19,15 @@ public class ClearableSurface : MonoBehaviour
 
     public void ProcessHit(int gunSetting)
     {
-        Color targetColor = new Color32(52, 235, 64, 255);
-        meshRend.material.DOKill();
-        meshRend.material.DOColor(targetColor, animTime).OnComplete(() =>
+        if (gunSetting == 0)
         {
-            meshRend.material.DOColor(initialColor, animTime);
-        });
+            Color targetColor = new Color32(52, 235, 64, 255);
+            meshRend.material.DOKill();
+            meshRend.material.DOColor(targetColor, animTime).OnComplete(() =>
+            {
+                meshRend.material.DOColor(initialColor, animTime);
+            });
+        }
 
         if (gunSetting != 0)
         {
