@@ -15,6 +15,6 @@ public class PlayerRespawner : MonoBehaviour
     public void RespawnPlayer()
     {
         if (currentPlayer != null) Destroy(currentPlayer.gameObject);
-        currentPlayer = Instantiate(playerPrefab, transform.position, Quaternion.identity, transform.parent);
+        currentPlayer = Instantiate(playerPrefab, transform.position, transform.rotation, transform.parent);
     }
 }
