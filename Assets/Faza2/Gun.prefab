@@ -52,6 +52,7 @@ MonoBehaviour:
   isInUse: 0
   isHidden: 0
   mesh: {fileID: 5328135695818857244}
+  bodyMeshRend: {fileID: 7567689254041008460}
   rotatingGear: {fileID: 930691533542772236}
   shootPoint: {fileID: 54909033501344086}
   gunWorldText: {fileID: 317990958024680761}
@@ -540,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

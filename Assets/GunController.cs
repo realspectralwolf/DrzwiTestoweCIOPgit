@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GunController : WeaponPositionController
 {
     [SerializeField] Transform mesh;
+    [SerializeField] MeshRenderer bodyMeshRend;
     [SerializeField] Transform rotatingGear;
     [SerializeField] Transform shootPoint;
     [SerializeField] Text gunWorldText;
@@ -56,7 +57,8 @@ public class GunController : WeaponPositionController
     void UpdateGunText()
     {
         gunWorldText.text = currentGunSetting.ToString();
-        gunWorldText.color = colorPalette.colors[currentGunSetting];
+        //gunWorldText.color = colorPalette.colors[currentGunSetting];
+        bodyMeshRend.material.color = colorPalette.colors[currentGunSetting];
     }
 
     public void Shoot()
