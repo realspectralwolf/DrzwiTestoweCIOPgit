@@ -7,7 +7,6 @@ public class LaserInteractable : MonoBehaviour
 {
     [SerializeField] public InteractableItem itemType;
 
-    [SerializeField] bool changeMeshOnTarget = false;
     [SerializeField] GameObject defaultMesh;
     [SerializeField] GameObject otherMesh;
 

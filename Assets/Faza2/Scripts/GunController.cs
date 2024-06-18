@@ -21,13 +21,13 @@ public class GunController : WeaponPositionController
 
     [SerializeField] ColorPaletteBase colorPalette;
 
-    private void Start()
+    new void Start()
     {
         base.Start();
         UpdateGunText();
     }
 
-    void Update()
+    new void Update()
     {
         base.Update();
         HandleAlphaNumericKeysInput();
