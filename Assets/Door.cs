@@ -52,7 +52,7 @@ public class Door : MonoBehaviour
         else
         {
             flamesParticles.gameObject.SetActive(true);
-            // Lose life
+            FPSHealth.Instance.TakeOneLifeAway();
         }
     }
 }

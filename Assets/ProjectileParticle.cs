@@ -16,7 +16,7 @@ public class ProjectileParticle : MonoBehaviour
 
     void ChangeParticleColor(ParticleSystem system, Color newColor)
     {
-        ParticleSystem.MainModule mainModule = continuusParticles.main;
+        ParticleSystem.MainModule mainModule = system.main;
         mainModule.startColor = newColor;
     }
 
