@@ -25,11 +25,14 @@ public class ToolUI : MonoBehaviour
         }
     }
 
+    float showTimer = 0;
+
     private void Update()
     {
-        if (weaponController.isInUse)
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            canvas.gameObject.SetActive(true);
+            showTimer = 1.5f;
+            container.gameObject.SetActive(true);
             RaycastHit hit;
             Vector3 targetPos;
             if (Physics.Raycast(raycastSource.position, raycastSource.forward, out hit, Mathf.Infinity, doorLayer))
@@ -39,15 +42,20 @@ public class ToolUI : MonoBehaviour
                 var hitObject = objectHit.GetComponentInParent<Door>();
 
                 UpdateIndicatorUI(hitObject.requiredGunSetting);
+                hitObject.ProcessOnInspectedByUser();
             }
             else
             {
                 UpdateIndicatorUI(-1);
             }
         }
+        if (showTimer > 0)
+        {
+            showTimer -= Time.deltaTime;
+        }
         else
         {
-            canvas.gameObject.SetActive(false);
+            container.gameObject.SetActive(false);
         }
     }
 
