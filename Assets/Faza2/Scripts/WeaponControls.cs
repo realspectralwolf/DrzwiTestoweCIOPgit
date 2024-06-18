@@ -16,7 +16,14 @@ public class WeaponControls : MonoBehaviour
     void HandleInput()
     {
         tool.isInUse = (Input.GetMouseButton(0) && !gun.isInUse);
-        gun.isInUse = (Input.GetMouseButton(1) && !tool.isInUse);
+
+        if (!tool.isInUse)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                gun.isInUse = !gun.isInUse;
+            }
+        }
 
         gun.isHidden = tool.isInUse;
         tool.isHidden = gun.isInUse;

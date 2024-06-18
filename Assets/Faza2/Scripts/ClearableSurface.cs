@@ -9,8 +9,6 @@ public class ClearableSurface : MonoBehaviour
     MeshRenderer meshRend;
     Color32 initialColor;
 
-    int hitCount = 0;
-
     public System.Action OnCompleted;
     public bool isCompleted = false;
 
@@ -24,7 +22,7 @@ public class ClearableSurface : MonoBehaviour
 
     public void ProcessHit(int gunSetting)
     {
-        if (gunSetting == 0)
+        if (gunSetting == 0 && !isCompleted)
         {
             isCompleted = true;
 
@@ -41,13 +39,11 @@ public class ClearableSurface : MonoBehaviour
 
         if (gunSetting != 0)
         {
-            // Mistake
+            // Wrong gun setting
             return;
         }
 
-        hitCount++;
-
-        if (hitCount > 1)
+        if (isCompleted)
         {
             // Too Many Mistake
         }

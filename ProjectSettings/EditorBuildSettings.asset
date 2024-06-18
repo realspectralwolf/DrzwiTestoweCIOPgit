@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Faza2/Faza2.unity
     guid: 2449805ae2c22ae4d8c9cba3391915f4
+  - enabled: 1
+    path: Assets/Faza3/Faza3.unity
+    guid: e2bc44c6d6f523644afa35da01c09ca1
   m_configObjects: {}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameplayStats : MonoBehaviour
 {
@@ -13,7 +14,15 @@ public class GameplayStats : MonoBehaviour
     public static GameplayStats Instance;
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
@@ -38,5 +47,10 @@ public class GameplayStats : MonoBehaviour
             // Game Completed
             // Progress to Phase 3 (results)
         }
+    }
+
+    public void LoadResultsScene()
+    {
+        SceneManager.LoadScene(2);
     }
 }

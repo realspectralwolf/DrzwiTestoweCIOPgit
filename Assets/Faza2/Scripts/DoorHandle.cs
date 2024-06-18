@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DoorHandle : MonoBehaviour
 {
-    [SerializeField] Door door;
+    [SerializeField] public Door door;
     public void RequestOpen()
     {
         door.RequestOpen();

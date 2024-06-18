@@ -8,11 +8,15 @@ public class Door : MonoBehaviour
     public int requiredGunSetting = -1;
     [SerializeField] MeshRenderer altMeshRenderer;
     [SerializeField] ParticleSystem altParticleSystem;
+    [SerializeField] ParticleSystem completedParticles;
     [SerializeField] ColorPaletteBase colorPalette;
     [SerializeField] float openAnimTime = 1f;
     [SerializeField] GameObject flamesParticles;
+    [SerializeField] Collider handleCollider;
+    [SerializeField] Collider doorCollider;
 
     public bool isCompleted = false;
+    public bool isFailed = false;
 
     private void Start()
     {
@@ -31,6 +35,7 @@ public class Door : MonoBehaviour
             altMeshRenderer.material.color = GetComponent<MeshRenderer>().material.color;
             altParticleSystem.gameObject.SetActive(false);
             requiredGunSetting = 0;
+            completedParticles.gameObject.SetActive(true);
         }
     }
 
@@ -53,6 +58,9 @@ public class Door : MonoBehaviour
         {
             flamesParticles.gameObject.SetActive(true);
             FPSHealth.Instance.TakeOneLifeAway();
+            isFailed = true;
+            handleCollider.enabled = false;
+            doorCollider.enabled = false;
         }
     }
 }

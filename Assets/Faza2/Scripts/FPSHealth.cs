@@ -22,6 +22,14 @@ public class FPSHealth : MonoBehaviour
         health--;
         lifeLostScreen.ShowScreen(health);
         yield return new WaitForSeconds(6);
-        PlayerRespawner.Instance.RespawnPlayer();
+
+        if (health > 0)
+        {
+            PlayerRespawner.Instance.RespawnPlayer();
+        }
+        else
+        {
+            GameplayStats.Instance.LoadResultsScene();
+        }
     }
 }
