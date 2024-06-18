@@ -11,22 +11,32 @@ public class ClearableSurface : MonoBehaviour
 
     int hitCount = 0;
 
+    public System.Action OnCompleted;
+    public bool isCompleted = false;
+
     private void Start()
     {
         meshRend = GetComponent<MeshRenderer>();
         initialColor = meshRend.material.color;
+
+        GameplayStats.Instance.AddToAllSurfaces(this);
     }
 
     public void ProcessHit(int gunSetting)
     {
         if (gunSetting == 0)
         {
+            isCompleted = true;
+
             Color targetColor = new Color32(52, 235, 64, 255);
             meshRend.material.DOKill();
             meshRend.material.DOColor(targetColor, animTime).OnComplete(() =>
             {
                 meshRend.material.DOColor(initialColor, animTime);
             });
+
+            GameplayStats.Instance.AddToCompletedSurfaces(this);
+            OnCompleted?.Invoke();
         }
 
         if (gunSetting != 0)
