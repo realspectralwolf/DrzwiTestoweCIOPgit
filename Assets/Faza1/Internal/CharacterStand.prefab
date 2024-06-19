@@ -1149,6 +1149,7 @@ MonoBehaviour:
   - {fileID: 4154273431402781778}
   - {fileID: 3664564531647450512}
   - {fileID: 1008562354609995903}
+  handRight: {fileID: 7038389610093969244}
 --- !u!1 &5104024917196530290
 GameObject:
   m_ObjectHideFlags: 0

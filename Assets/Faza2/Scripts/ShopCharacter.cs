@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ShopCharacter : MonoBehaviour
 {
     [SerializeField] List<LaserBodyPart> bodyPartsRequired;
+    [SerializeField] LaserBodyPart handRight;
 
     private void OnEnable()
     {
@@ -37,6 +38,7 @@ public class ShopCharacter : MonoBehaviour
 
         if (allCompleted)
         {
+            WeaponControls.doFlipHands = (handRight.heldItem.itemType == InteractableItem.Tool);
             // Proceed to next level
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

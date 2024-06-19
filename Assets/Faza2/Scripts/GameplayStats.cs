@@ -21,6 +21,7 @@ public class GameplayStats : MonoBehaviour
     public Room[] rooms;
     public List<ClearableSurface> allSurfaces { get; private set; } = new();
     public List<ClearableSurface> completedSurfaces { get; private set; } = new();
+    public List<ClearableSurface> blockedSurfaces { get; private set; } = new();
 
     public static GameplayStats Instance;
 
@@ -83,10 +84,20 @@ public class GameplayStats : MonoBehaviour
     public void AddToCompletedSurfaces(ClearableSurface newSurface)
     {
         if (completedSurfaces.Contains(newSurface)) return;
-
         completedSurfaces.Add(newSurface);
+        CheckIfCompletedAll();
+    }
 
-        if (completedSurfaces.Count == allSurfaces.Count)
+    public void AddToBlockedSurfaces(ClearableSurface newSurface)
+    {
+        if (blockedSurfaces.Contains(newSurface)) return;
+        blockedSurfaces.Add(newSurface);
+        CheckIfCompletedAll();
+    }
+
+    void CheckIfCompletedAll()
+    {
+        if ((completedSurfaces.Count + blockedSurfaces.Count) == allSurfaces.Count)
         {
             // Game Completed
             // Progress to Phase 3 (results)

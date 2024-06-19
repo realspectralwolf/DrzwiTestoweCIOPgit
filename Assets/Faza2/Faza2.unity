@@ -1697,6 +1697,7 @@ MonoBehaviour:
   - {fileID: 8693162733489497978}
   - {fileID: 8865857345580131802}
   isCompleted: 0
+  isBlocked: 0
 --- !u!1 &988057730
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,6 +2348,7 @@ MonoBehaviour:
   - {fileID: 6248940792779514769}
   - {fileID: 8197828806616690423}
   isCompleted: 0
+  isBlocked: 0
 --- !u!1 &1384916520
 GameObject:
   m_ObjectHideFlags: 0
@@ -3524,6 +3526,7 @@ MonoBehaviour:
   - {fileID: 8759806548799818668}
   - {fileID: 8030077690443095999}
   isCompleted: 0
+  isBlocked: 0
 --- !u!1 &1758846086
 GameObject:
   m_ObjectHideFlags: 0
@@ -3851,6 +3854,7 @@ MonoBehaviour:
   - {fileID: 3590285237934099849}
   - {fileID: 8685225736282170475}
   isCompleted: 0
+  isBlocked: 0
 --- !u!1 &2076008083
 GameObject:
   m_ObjectHideFlags: 0
@@ -4865,6 +4869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!23 &2073330813795870791
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5212,6 +5217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!23 &3466236209674983212
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5325,6 +5331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!4 &3620619601427093148
 Transform:
   m_ObjectHideFlags: 0
@@ -5561,6 +5568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!4 &4010235620386237743
 Transform:
   m_ObjectHideFlags: 0
@@ -5881,6 +5889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!4 &5109517217671435796
 Transform:
   m_ObjectHideFlags: 0
@@ -5952,6 +5961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!4 &5213715798252801038
 Transform:
   m_ObjectHideFlags: 0
@@ -6181,6 +6191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!4 &6127601828831062989
 Transform:
   m_ObjectHideFlags: 0
@@ -6232,6 +6243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!1001 &6228558137120709631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6360,6 +6372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!1 &6269027542731625625
 GameObject:
   m_ObjectHideFlags: 0
@@ -6498,6 +6511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!23 &6682473535394290711
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6721,6 +6735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!1 &7410267243840679196
 GameObject:
   m_ObjectHideFlags: 0
@@ -6957,6 +6972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!23 &8030077690443095997
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7034,6 +7050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!33 &8097380305482414589
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7139,6 +7156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!1 &8214604669955662448
 GameObject:
   m_ObjectHideFlags: 0
@@ -7268,6 +7286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!1001 &8576674549209900885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7376,6 +7395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!1 &8632480628388921843
 GameObject:
   m_ObjectHideFlags: 0
@@ -7535,6 +7555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!23 &8693162733489497976
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7612,6 +7633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!23 &8759470207644575278
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7705,6 +7727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!23 &8790021330119513729
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7798,6 +7821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!33 &8839917264036898504
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7861,6 +7885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!4 &8865857345580131800
 Transform:
   m_ObjectHideFlags: 0
@@ -7912,6 +7937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!33 &8900084194042974369
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7955,6 +7981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!23 &8921573934519281821
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8137,6 +8164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCompleted: 0
+  hitCount: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

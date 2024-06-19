@@ -20,6 +20,7 @@ public class LaserDrawer : MonoBehaviour
         {
             container.GetChild(i).gameObject.SetActive(false);
         }
+        DrawerManager.Instance.laserDrawers.Add(this);
     }
 
     private void OnEnable()
@@ -27,8 +28,8 @@ public class LaserDrawer : MonoBehaviour
         interactable = GetComponent<LaserInteractable>();
         interactable.OnLaserEnter += OpenDrawer;
         interactable.OnLaserExit += CloseDrawer;
-        DrawerManager.Instance.laserDrawers.Add(this);
     }
+
 
     private void OnDisable()
     {

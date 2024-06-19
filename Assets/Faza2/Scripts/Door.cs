@@ -14,6 +14,7 @@ public class Door : MonoBehaviour
     [SerializeField] GameObject flamesParticles;
     [SerializeField] Collider handleCollider;
     [SerializeField] Collider doorCollider;
+    [SerializeField] Room targetRoom;
 
     public bool isCompleted = false;
     public bool isFailed = false;
@@ -73,6 +74,7 @@ public class Door : MonoBehaviour
             isFailed = true;
             handleCollider.enabled = false;
             doorCollider.enabled = false;
+            targetRoom.SetToBlockedRoom();
 
             if (requiredGunSetting == 0 && !isCompleted)
             {

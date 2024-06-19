@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class LaserBodyPart : MonoBehaviour
 {
@@ -48,7 +47,6 @@ public class LaserBodyPart : MonoBehaviour
 
     public bool CanAccept(LaserInteractable item)
     {
-        Debug.Log(heldItem == null);
         if (item == heldItem || acceptableItems.Contains(InteractableItem.All)) return true;
         return (acceptableItems.Contains(item.itemType) && (heldItem == null || isDrawer));
     }

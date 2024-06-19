@@ -6,6 +6,7 @@ public class Room : MonoBehaviour
 {
     [SerializeField] ClearableSurface[] clearableSurfaces;
     public bool isCompleted = false;
+    public bool isBlocked = false;
 
     private void OnEnable()
     {
@@ -38,6 +39,15 @@ public class Room : MonoBehaviour
         if (areAllCompleted)
         {
             isCompleted = true;
+        }
+    }
+
+    public void SetToBlockedRoom()
+    {
+        isBlocked = true;
+        for (int i = 0; i < clearableSurfaces.Length; i++)
+        {
+            GameplayStats.Instance.AddToBlockedSurfaces(clearableSurfaces[i]);
         }
     }
 }

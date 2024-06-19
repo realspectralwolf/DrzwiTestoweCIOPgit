@@ -7,8 +7,10 @@ public class WeaponControls : MonoBehaviour
     [SerializeField] GunController gun;
     [SerializeField] WeaponPositionController tool;
     [SerializeField] DynamicCamera dynamicCamera;
+    [SerializeField] GameObject tooltipDefault;
+    [SerializeField] GameObject tooltipFlipped;
 
-    static bool doFlipHands = false;
+    public static bool doFlipHands = false;
     bool doFlipControls = false;
 
     private void Awake()
@@ -70,5 +72,8 @@ public class WeaponControls : MonoBehaviour
         tool.transform.localRotation = Quaternion.Euler(new Vector3(toolRot.x, -toolRot.y, toolRot.z));
 
         doFlipControls = true;
+
+        tooltipDefault.SetActive(false);
+        tooltipFlipped.SetActive(true);
     }
 }

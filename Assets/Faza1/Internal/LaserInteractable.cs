@@ -37,7 +37,6 @@ public class LaserInteractable : MonoBehaviour
         if (otherMesh == null || defaultMesh == null) return;
         defaultMesh.gameObject.SetActive(true);
         otherMesh.gameObject.SetActive(false);
-        Debug.Log("DEFAULT MESH");
     }
 
     public void SetMeshToOther()
