@@ -13,6 +13,7 @@ public class FPSHealth : MonoBehaviour
     }
     public void TakeOneLifeAway()
     {
+        Debug.Log(GameplayStats.Instance.isGameplay);
         if (GameplayStats.Instance.isGameplay)
         {
             GameplayStats.Instance.DecreasePlayerHealth();
