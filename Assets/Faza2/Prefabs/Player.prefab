@@ -953,7 +953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 4687165525413200273}
-  speed: 5
+  speed: 5.5
   mouseSensitivity: 2
   gravity: -9.81
 --- !u!114 &7776882931106773654

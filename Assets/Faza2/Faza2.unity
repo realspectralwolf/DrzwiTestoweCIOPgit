@@ -1120,12 +1120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameplaySeconds: 0
-  doorsCompleted: 0
-  rooms:
-  - {fileID: 1368547408}
-  - {fileID: 1723257908}
-  - {fileID: 2021569305}
-  - {fileID: 973374832}
 --- !u!4 &716272394
 Transform:
   m_ObjectHideFlags: 0
