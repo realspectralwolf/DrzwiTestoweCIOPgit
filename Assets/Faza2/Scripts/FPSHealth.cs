@@ -13,8 +13,11 @@ public class FPSHealth : MonoBehaviour
     }
     public void TakeOneLifeAway()
     {
-        GameplayStats.Instance.DecreasePlayerHealth();
-        lifeLostScreen.ShowScreen(GameplayStats.Instance.GetPlayerHealth());
+        if (GameplayStats.Instance.isGameplay)
+        {
+            GameplayStats.Instance.DecreasePlayerHealth();
+            lifeLostScreen.ShowScreen(GameplayStats.Instance.GetPlayerHealth());
+        }
 
         GetComponent<FPSController>().enabled = false;
         GetComponent<CharacterController>().enabled = false;

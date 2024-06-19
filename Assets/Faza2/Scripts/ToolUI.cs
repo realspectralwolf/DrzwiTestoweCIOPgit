@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class ToolUI : MonoBehaviour
     [SerializeField] WeaponPositionController weaponController;
     [SerializeField] LayerMask doorLayer;
     [SerializeField] Transform raycastSource;
+    [SerializeField] float toolRange = 5;
+    [SerializeField] Text textTooFar;
 
     Text[] texts;
     Image[] images;
@@ -39,10 +42,27 @@ public class ToolUI : MonoBehaviour
             {
                 Transform objectHit = hit.transform;
                 targetPos = hit.point;
-                var hitObject = objectHit.GetComponentInParent<Door>();
 
-                UpdateIndicatorUI(hitObject.requiredGunSetting);
-                hitObject.ProcessOnInspectedByUser();
+                if (Vector3.Distance(hit.point, transform.position) <= toolRange)
+                {
+                    var hitObject = objectHit.GetComponentInParent<Door>();
+                    UpdateIndicatorUI(hitObject.requiredGunSetting);
+                    hitObject.ProcessOnInspectedByUser();
+
+                    textTooFar.enabled = false;
+                    textTooFar.DOKill();
+                }
+                else
+                {
+                    UpdateIndicatorUI(-1);
+
+                    textTooFar.DOKill();
+                    textTooFar.enabled = true;
+                    textTooFar.color = Color.white;
+                    textTooFar.DOColor(new Color32(255, 255, 255, 0), 0)
+                        .SetDelay(1.5f)
+                        .OnComplete(() => { textTooFar.enabled = false; });
+                }
             }
             else
             {

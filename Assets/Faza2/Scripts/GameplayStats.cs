@@ -26,7 +26,7 @@ public class GameplayStats : MonoBehaviour
     public List<ClearableSurface> blockedSurfaces { get; private set; } = new();
 
     public static GameplayStats Instance;
-    bool isGameplay = true;
+    public bool isGameplay = true;
 
     /*    Gracz dostaje informacje o:
     - Czasie działania
@@ -102,7 +102,11 @@ public class GameplayStats : MonoBehaviour
         blockedSurfaces.Add(newSurface);
 
         Debug.Log($"{completedSurfaces.Count + blockedSurfaces.Count}/{allSurfaces.Count} surfaces");
-        CheckIfCompletedAll();
+
+        if (GetPlayerHealth() > 1)
+        {
+            CheckIfCompletedAll();
+        }
     }
 
     void CheckIfCompletedAll()

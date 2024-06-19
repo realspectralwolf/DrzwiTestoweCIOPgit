@@ -54,7 +54,7 @@ public class Door : MonoBehaviour
 
     public void ProcessOnInspectedByUser()
     {
-        if (requiredGunSetting == 0)
+        if (requiredGunSetting == 0 && !isFailed && !isCompleted)
         {
             isCompleted = true;
         }
@@ -72,11 +72,12 @@ public class Door : MonoBehaviour
         else
         {
             flamesParticles.gameObject.SetActive(true);
+            targetRoom.SetToBlockedRoom();
             FPSHealth.Instance.TakeOneLifeAway();
             isFailed = true;
             handleCollider.enabled = false;
             doorCollider.enabled = false;
-            targetRoom.SetToBlockedRoom();
+            
 
             if (requiredGunSetting == 0 && !isCompleted)
             {
