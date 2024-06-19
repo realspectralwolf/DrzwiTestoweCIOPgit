@@ -66,17 +66,20 @@ public class GunController : WeaponPositionController
         Ray ray = new Ray(targetCamera.transform.position, targetCamera.transform.forward);
         RaycastHit hit;
 
+        var particle = Instantiate(particlePrefab, shootPoint.position, Quaternion.identity);
+        particle.Init(colorPalette.colors[currentGunSetting]);
+
+        float distance;
+        int gunSettingForThisParticle = currentGunSetting;
+
         if (Physics.Raycast(ray, out hit, rayDistance, raycastLayer))
         {
-            var particle = Instantiate(particlePrefab, shootPoint.position, Quaternion.identity);
-            particle.Init(colorPalette.colors[currentGunSetting]);
-
-            float distance = Vector3.Distance(particle.transform.position, hit.point);
+            distance = Vector3.Distance(particle.transform.position, hit.point);
             float time = distance / particleSpeed;
-            int gunSettingForThisParticle = currentGunSetting;
             particle.transform.DOMove(hit.point, time).SetEase(Ease.Linear).OnComplete(() =>
             {
                 particle.Explode();
+                AudioManager.Instance.PlaySound("impact");
 
                 if (hit.collider.CompareTag("ClearableSurface"))
                 {
@@ -89,6 +92,19 @@ public class GunController : WeaponPositionController
                 }
             });
         }
+        else
+        {
+            distance = 40;
+            float time = distance / particleSpeed;
+            Vector3 dir = targetCamera.transform.forward;
+            Vector3 targetPos = targetCamera.transform.position + dir.normalized * distance;
+            particle.transform.DOMove(hit.point, time).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                Destroy(particle.gameObject);
+            });
+        }
+
+        AudioManager.Instance.PlaySound("shoot");
 
         mesh.DOComplete();
         mesh.DOPunchPosition(new Vector3(0, 0, 0.2f), 0.1f, 2);

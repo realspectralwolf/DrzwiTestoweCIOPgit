@@ -22,6 +22,8 @@ public class LaserBodyPart : MonoBehaviour
 
         heldItem = item;
         OnStatusChanged?.Invoke();
+
+        AudioManager.Instance.PlaySound("clothesOn");
     }
 
     public void OnDeadopted()

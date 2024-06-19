@@ -49,6 +49,7 @@ public class Door : MonoBehaviour
             altParticleSystem.gameObject.SetActive(false);
             requiredGunSetting = 0;
             completedParticles.gameObject.SetActive(true);
+            AudioManager.Instance.PlaySound("doorUnlocked");
         }
     }
 
@@ -68,16 +69,18 @@ public class Door : MonoBehaviour
             transform.DOLocalRotate(transform.localRotation.eulerAngles + new Vector3(0, -90f, 0), openAnimTime);
             handleCollider.enabled = false;
             GameplayStats.Instance.IncrementDoorsCompleted();
+            AudioManager.Instance.PlaySound("doorOpen");
         }
         else
         {
+            // Set door on fire
             flamesParticles.gameObject.SetActive(true);
             targetRoom.SetToBlockedRoom();
             FPSHealth.Instance.TakeOneLifeAway();
             isFailed = true;
             handleCollider.enabled = false;
             doorCollider.enabled = false;
-            
+            AudioManager.Instance.PlaySound("fire");
 
             if (requiredGunSetting == 0 && !isCompleted)
             {

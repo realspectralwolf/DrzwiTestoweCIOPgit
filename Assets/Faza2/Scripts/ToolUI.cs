@@ -34,6 +34,8 @@ public class ToolUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            AudioManager.Instance.PlaySound("scan");
+
             showTimer = 1.5f;
             container.gameObject.SetActive(true);
             RaycastHit hit;

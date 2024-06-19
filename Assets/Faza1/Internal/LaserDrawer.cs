@@ -59,6 +59,8 @@ public class LaserDrawer : MonoBehaviour
         int childCount = container.childCount;
         UpdateOpenedColliderSize(childCount);
 
+        AudioManager.Instance.PlaySound("drawer");
+
         for (int i = 0; i < childCount; i++)
         {
             container.GetChild(i).DOKill();

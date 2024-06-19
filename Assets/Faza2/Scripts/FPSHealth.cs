@@ -11,6 +11,12 @@ public class FPSHealth : MonoBehaviour
     {
         Instance = this;
     }
+
+    private void Start()
+    {
+        AudioManager.Instance.PlaySound("teleport");
+    }
+
     public void TakeOneLifeAway()
     {
         Debug.Log(GameplayStats.Instance.isGameplay);
