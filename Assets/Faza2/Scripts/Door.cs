@@ -66,6 +66,8 @@ public class Door : MonoBehaviour
         {
             // rotate door
             transform.DOLocalRotate(transform.localRotation.eulerAngles + new Vector3(0, -90f, 0), openAnimTime);
+            handleCollider.enabled = false;
+            GameplayStats.Instance.IncrementDoorsCompleted();
         }
         else
         {

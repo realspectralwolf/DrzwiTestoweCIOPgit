@@ -17,13 +17,14 @@ public enum PlayerError
 public class GameplayStats : MonoBehaviour
 {
     public float gameplaySeconds = 0;
-    public int doorsCompleted = 0;
-    public Room[] rooms;
+    int doorsCompleted = 0;
+    int roomsCompleted = 0;
     public List<ClearableSurface> allSurfaces { get; private set; } = new();
     public List<ClearableSurface> completedSurfaces { get; private set; } = new();
     public List<ClearableSurface> blockedSurfaces { get; private set; } = new();
 
     public static GameplayStats Instance;
+    bool isGameplay = true;
 
     /*    Gracz dostaje informacje o:
     - Czasie działania
@@ -72,7 +73,10 @@ public class GameplayStats : MonoBehaviour
 
     private void Update()
     {
-        gameplaySeconds += Time.unscaledDeltaTime;
+        if (isGameplay)
+        {
+            gameplaySeconds += Time.unscaledDeltaTime;
+        }
     }
 
     public void AddToAllSurfaces(ClearableSurface newSurface)
@@ -107,6 +111,7 @@ public class GameplayStats : MonoBehaviour
 
     public void LoadResultsScene()
     {
+        isGameplay = false;
         UpdateSomeStatistics();
         SceneManager.LoadScene(2);
     }
@@ -126,5 +131,32 @@ public class GameplayStats : MonoBehaviour
             if (completedSurfaces[i].hitCount > 1) wallsHitMoreThanOnce++;
         }
         errorsDictionary[PlayerError.SurfacesHitMoreThanOnce] = wallsHitMoreThanOnce;
+    }
+
+    public string GetTimeString()
+    {
+        int minutes = Mathf.FloorToInt(gameplaySeconds / 60);
+        int remainingSeconds = Mathf.FloorToInt(gameplaySeconds % 60);
+        return string.Format("{0:00}:{1:00}", minutes, remainingSeconds);
+    }
+
+    public void IncrementDoorsCompleted()
+    {
+        doorsCompleted++;
+    }
+
+    public int GetCompletedDoors()
+    {
+        return doorsCompleted;
+    }
+
+    public void IncrementRoomsCompleted()
+    {
+        roomsCompleted++;
+    }
+
+    public int GetRoomsCompleted()
+    {
+        return roomsCompleted;
     }
 }

@@ -36,9 +36,10 @@ public class Room : MonoBehaviour
             }
         }
 
-        if (areAllCompleted)
+        if (areAllCompleted && !isCompleted)
         {
             isCompleted = true;
+            GameplayStats.Instance.IncrementRoomsCompleted();
         }
     }
 
