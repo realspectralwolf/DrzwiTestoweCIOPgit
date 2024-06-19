@@ -16,9 +16,11 @@ public enum PlayerError
 
 public class GameplayStats : MonoBehaviour
 {
+    [SerializeField] GameObject allCompletedUI;
     public float gameplaySeconds = 0;
     int doorsCompleted = 0;
     int roomsCompleted = 0;
+    int playerHealth = 3;
     public List<ClearableSurface> allSurfaces { get; private set; } = new();
     public List<ClearableSurface> completedSurfaces { get; private set; } = new();
     public List<ClearableSurface> blockedSurfaces { get; private set; } = new();
@@ -89,6 +91,8 @@ public class GameplayStats : MonoBehaviour
     {
         if (completedSurfaces.Contains(newSurface)) return;
         completedSurfaces.Add(newSurface);
+
+        Debug.Log($"{completedSurfaces.Count + blockedSurfaces.Count}/{allSurfaces.Count} surfaces");
         CheckIfCompletedAll();
     }
 
@@ -96,6 +100,8 @@ public class GameplayStats : MonoBehaviour
     {
         if (blockedSurfaces.Contains(newSurface)) return;
         blockedSurfaces.Add(newSurface);
+
+        Debug.Log($"{completedSurfaces.Count + blockedSurfaces.Count}/{allSurfaces.Count} surfaces");
         CheckIfCompletedAll();
     }
 
@@ -105,14 +111,29 @@ public class GameplayStats : MonoBehaviour
         {
             // Game Completed
             // Progress to Phase 3 (results)
-            LoadResultsScene();
+            LoadResultsScene(didLose: false);
         }
     }
 
-    public void LoadResultsScene()
+    public void LoadResultsScene(bool didLose)
     {
         isGameplay = false;
         UpdateSomeStatistics();
+        StartCoroutine(LoadResultsSequence(didLose));
+    }
+
+    IEnumerator LoadResultsSequence(bool didLose)
+    {
+        if (didLose)
+        {
+            yield return new WaitForSeconds(0);
+        }
+        else
+        {
+            Instantiate(allCompletedUI);
+            yield return new WaitForSeconds(4);
+        }
+        
         SceneManager.LoadScene(2);
     }
 
@@ -158,5 +179,30 @@ public class GameplayStats : MonoBehaviour
     public int GetRoomsCompleted()
     {
         return roomsCompleted;
+    }
+
+    public void DecreasePlayerHealth()
+    {
+        playerHealth--;
+        StartCoroutine(DecreasePlayerHealthSequence());
+    }
+
+    IEnumerator DecreasePlayerHealthSequence()
+    {
+        yield return new WaitForSeconds(5);
+
+        if (GetPlayerHealth() > 0)
+        {
+            PlayerRespawner.Instance.RespawnPlayer();
+        }
+        else
+        {
+            LoadResultsScene(didLose: true);
+        }
+    }
+
+    public int GetPlayerHealth()
+    {
+        return playerHealth;
     }
 }

@@ -6,7 +6,6 @@ public class FPSHealth : MonoBehaviour
 {
     [SerializeField] LifeLostScreen lifeLostScreen;
     public static FPSHealth Instance;
-    int health = 3;
 
     private void Awake()
     {
@@ -14,22 +13,10 @@ public class FPSHealth : MonoBehaviour
     }
     public void TakeOneLifeAway()
     {
-        StartCoroutine(TakeLifeAwaySequence());
-    }
+        GameplayStats.Instance.DecreasePlayerHealth();
+        lifeLostScreen.ShowScreen(GameplayStats.Instance.GetPlayerHealth());
 
-    IEnumerator TakeLifeAwaySequence()
-    {
-        health--;
-        lifeLostScreen.ShowScreen(health);
-        yield return new WaitForSeconds(6);
-
-        if (health > 0)
-        {
-            PlayerRespawner.Instance.RespawnPlayer();
-        }
-        else
-        {
-            GameplayStats.Instance.LoadResultsScene();
-        }
+        GetComponent<FPSController>().enabled = false;
+        GetComponent<CharacterController>().enabled = false;
     }
 }
