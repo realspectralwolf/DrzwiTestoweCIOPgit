@@ -11,6 +11,7 @@ public class ClearableSurface : MonoBehaviour
 
     public System.Action OnCompleted;
     public bool isCompleted = false;
+    public int hitCount = 0;
 
     private void Start()
     {
@@ -22,6 +23,8 @@ public class ClearableSurface : MonoBehaviour
 
     public void ProcessHit(int gunSetting)
     {
+        hitCount++;
+
         if (gunSetting == 0 && !isCompleted)
         {
             isCompleted = true;
@@ -40,12 +43,8 @@ public class ClearableSurface : MonoBehaviour
         if (gunSetting != 0)
         {
             // Wrong gun setting
+            GameplayStats.Instance.IncrementError(PlayerError.WrongSettingForSurface);
             return;
-        }
-
-        if (isCompleted)
-        {
-            // Too Many Mistake
         }
     }
 }

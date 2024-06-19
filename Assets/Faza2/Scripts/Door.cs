@@ -29,6 +29,18 @@ public class Door : MonoBehaviour
 
     public void ProcessHit(int gunSetting)
     {
+        if (gunSetting > requiredGunSetting)
+        {
+            GameplayStats.Instance.IncrementError(PlayerError.TooBigSettingForDoors);
+            return;
+        }
+
+        if (gunSetting < requiredGunSetting)
+        {
+            GameplayStats.Instance.IncrementError(PlayerError.TooLowSettingForDoors);
+            return;
+        }
+
         if (gunSetting == requiredGunSetting)
         {
             // door completed
@@ -61,6 +73,11 @@ public class Door : MonoBehaviour
             isFailed = true;
             handleCollider.enabled = false;
             doorCollider.enabled = false;
+
+            if (requiredGunSetting == 0 && !isCompleted)
+            {
+                GameplayStats.Instance.IncrementError(PlayerError.NoMeasurement);
+            }
         }
     }
 }

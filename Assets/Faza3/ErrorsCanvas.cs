@@ -14,6 +14,11 @@ public class ErrorsCanvas : MonoBehaviour
 
     void Start()
     {
-        
+        noMeasurement.text = GameplayStats.Instance.GetErrorCount(PlayerError.NoMeasurement).ToString();
+        tooHighWhenShootingDoor.text = GameplayStats.Instance.GetErrorCount(PlayerError.TooBigSettingForDoors).ToString();
+        tooLowWhenShootingDor.text = GameplayStats.Instance.GetErrorCount(PlayerError.TooLowSettingForDoors).ToString();
+        hitWallsWithWrongSetting.text = GameplayStats.Instance.GetErrorCount(PlayerError.WrongSettingForSurface).ToString();
+        skippedWalls.text = GameplayStats.Instance.GetErrorCount(PlayerError.SkippedWalls).ToString();
+        wallsHitMoreThanOnce.text = GameplayStats.Instance.GetErrorCount(PlayerError.SurfacesHitMoreThanOnce).ToString();
     }
 }
