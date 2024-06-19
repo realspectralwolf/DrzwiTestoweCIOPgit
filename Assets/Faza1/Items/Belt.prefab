@@ -155,6 +155,10 @@ PrefabInstance:
       propertyPath: itemType
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6112544769734763163, guid: c31bf2952f2375b47ae0e98ce84f43c1, type: 3}
+      propertyPath: bodyPartLayer.m_Bits
+      value: 524288
+      objectReference: {fileID: 0}
     - target: {fileID: 7099925298550920126, guid: c31bf2952f2375b47ae0e98ce84f43c1, type: 3}
       propertyPath: m_Name
       value: Belt

@@ -72,6 +72,9 @@ public class LaserDrawer : MonoBehaviour
             .OnPlay(() =>
             {
                 childObject.SetActive(true);
+            }).OnComplete(() =>
+            {
+                childObject.GetComponent<LaserInteractable>().EnableRaycastCollider();
             });
         }
     }
@@ -100,6 +103,7 @@ public class LaserDrawer : MonoBehaviour
         for (int i = 0; i < childCount; i++)
         {
             var childObject = container.GetChild(i).gameObject;
+            childObject.GetComponent<LaserInteractable>().DisableRaycastCollider();
             container.GetChild(i).DOLocalMoveZ(0, animTime * childCount).SetEase(Ease.InOutExpo)
             .OnComplete(() =>
             {

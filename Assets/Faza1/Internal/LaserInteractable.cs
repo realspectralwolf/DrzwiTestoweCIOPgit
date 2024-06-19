@@ -6,6 +6,7 @@ using UnityEngine;
 public class LaserInteractable : MonoBehaviour
 {
     [SerializeField] public InteractableItem itemType;
+    [SerializeField] public LayerMask bodyPartLayer;
 
     [SerializeField] GameObject defaultMesh;
     [SerializeField] GameObject otherMesh;
@@ -36,6 +37,7 @@ public class LaserInteractable : MonoBehaviour
         if (otherMesh == null || defaultMesh == null) return;
         defaultMesh.gameObject.SetActive(true);
         otherMesh.gameObject.SetActive(false);
+        Debug.Log("DEFAULT MESH");
     }
 
     public void SetMeshToOther()
@@ -43,6 +45,16 @@ public class LaserInteractable : MonoBehaviour
         if (otherMesh == null || defaultMesh == null) return;
         defaultMesh.gameObject.SetActive(false);
         otherMesh.gameObject.SetActive(true);
+    }
+
+    public void EnableRaycastCollider()
+    {
+        GetComponent<Collider>().enabled = true;
+    }
+
+    public void DisableRaycastCollider()
+    {
+        GetComponent<Collider>().enabled = false;
     }
 }
 

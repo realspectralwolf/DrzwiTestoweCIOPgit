@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class WeaponPositionController : MonoBehaviour
 {
-    [SerializeField] Vector3 inUsePos;
-    [SerializeField] Vector3 inUseRot;
-    [SerializeField] Vector3 hiddenPos;
+    [SerializeField] public Vector3 inUsePos;
+    [SerializeField] public Vector3 inUseRot;
+    [SerializeField] public Vector3 hiddenPos;
     Vector3 initialPos;
     Quaternion initialRot;
 

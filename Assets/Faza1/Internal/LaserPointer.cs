@@ -11,6 +11,8 @@ public class LaserPointer : MonoBehaviour
     [SerializeField] LayerMask layerDrawer;
     [SerializeField] LayerMask layerBodyPart;
     [SerializeField] float laserRenderMaxDistance = 100;
+    [SerializeField] Color laserColorDefault;
+    [SerializeField] Color laserColorClicked;
 
     LaserInteractable selectedObject = null;
     LaserInteractable selectedDrawer = null;
@@ -60,10 +62,14 @@ public class LaserPointer : MonoBehaviour
                 selectedObject.LaserExit();
                 selectedObject.transform.SetParent(null);
                 selectedObject.transform.DOKill();
+                selectedObject.bodyParentParent?.OnDeadopted();
                 selectedDrawer?.OnLaserExit();
+
+                selectedObject.transform.GetChild(0).DOPunchScale(Vector3.one * 0.2f, 0.2f, 0);
             }
             else
             {
+                selectedObject.transform.GetChild(0).DOPunchScale(Vector3.one * 0.2f, 0.2f, 0);
                 isDragging = false;
                 bool doReset = true;
                 if (selectedBodyPart != null)
@@ -102,6 +108,9 @@ public class LaserPointer : MonoBehaviour
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, mouseWorldPos);
         transform.LookAt(mouseWorldPos);
+        
+        lineRenderer.startColor = Input.GetMouseButton(0) ? laserColorClicked : laserColorDefault;
+        lineRenderer.endColor = Input.GetMouseButton(0) ? laserColorClicked : laserColorDefault;
     }
 
     void HandleItemRaycast()
@@ -165,7 +174,7 @@ public class LaserPointer : MonoBehaviour
         RaycastHit hit;
         Vector3 targetPos;
 
-        if (Physics.Raycast(transform.position, mouseWorldPos, out hit, Mathf.Infinity, layerBodyPart))
+        if (Physics.Raycast(transform.position, mouseWorldPos, out hit, Mathf.Infinity, selectedObject.bodyPartLayer))
         {
             Transform objectHit = hit.transform;
             targetPos = hit.point;

@@ -20,14 +20,14 @@ TagManager:
   - CameraToolVisible
   - MainCameraOnly
   - DoorHandleCollider
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - BodyFace
+  - BodyHead
+  - BodyBothHands
+  - BodyRightHand
+  - BodyLeftHand
+  - BodyFeet
+  - BodyBelt
+  - BodyChest
   - 
   - 
   - 
