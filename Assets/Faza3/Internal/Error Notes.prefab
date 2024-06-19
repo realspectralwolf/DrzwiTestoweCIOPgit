@@ -698,7 +698,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Brak wykonania pomiaru:'
+  m_Text: 'Brak wykonania pomiaru po zneutralizowaniu:'
 --- !u!1 &5162729785597652297
 GameObject:
   m_ObjectHideFlags: 0
