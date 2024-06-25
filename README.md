@@ -1,0 +1,1 @@
+*Nie nazywałem commitów aby zrobić zadanie testowe (zgodnie z mailem) jak najszybciej. Organizowanie commitów przy tak małym projekcie we wczesnej fazie i krótkim czasie (2 dni) diametralnie zwiększyło by czas realizacji.
